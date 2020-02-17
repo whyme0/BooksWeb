@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 'Roboto Condensed', sans-serif;
+}
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+nav{
+	padding: 7px 0;
+	border-bottom: 2px solid black;
+	text-align: center;
+}
+
+.link{
+	text-decoration: none;
+	color: black;
+	font-size: 2em;
+	margin-right: 1.5em;
+}
+.main{
+	width: 80%;
+	height: 200px;
+	margin: 0 auto;
+}
+
+.title{
+	border-bottom: 2px solid black;
+	padding: 3px 0;
+	font-size: 5em;
+	text-align: center;
+}
+.description{
+	margin: 17px 0;
+	font-size: 18px;
+}

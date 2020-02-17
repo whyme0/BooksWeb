@@ -1,0 +1,15 @@
+{% extends "bookapp/primary_pattern.html" %}
+
+{% block content %}
+
+	{% if books_list %}
+
+		{% for book in books_list %}
+			<p>{{ book }}</p>
+		{% endfor %}
+
+	{% else %}
+		<p>No books are available.</p>
+	{% endif %}
+
+{% endblock content %}
