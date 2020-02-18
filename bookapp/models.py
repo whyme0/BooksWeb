@@ -23,7 +23,7 @@ class Book(models.Model):
 	book_genre = models.CharField(max_length=32)
 	
 	# just year of publication
-	_book_year = models.PositiveSmallIntegerField(
+	book_year = models.PositiveSmallIntegerField(
 			validators=[
 				MaxValueValidator(
 					datetime.now().year,

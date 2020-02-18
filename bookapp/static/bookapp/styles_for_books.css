@@ -1,0 +1,19 @@
+.booklist{
+	width: 90%;
+	margin: 17px 15px;
+	transition: all 0.3s ease;
+}
+.booklist:hover{
+	background-color: #ebe4e4;
+}
+
+.book-wrapper{
+	text-decoration: none;
+	color: #483B37;
+}
+.book{
+	padding: 1em;
+}
+.book_title{
+	font-size: 0.4em;
+}

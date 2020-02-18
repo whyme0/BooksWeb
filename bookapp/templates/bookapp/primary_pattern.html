@@ -4,6 +4,8 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="{% static 'bookapp/styles.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	{% block page_configs %}
+	{% endblock page_configs %}
 </head>
 
 
@@ -15,7 +17,7 @@
 
 		<nav>
 			<a href="books/" class="link">Книги</a>
-			<a href="autors/" class="link">Авторы</a>
+			<!-- <a href="autors/" class="link">Авторы</a> -->
 		</nav>
 		{% block content %}
 		{% endblock content %}

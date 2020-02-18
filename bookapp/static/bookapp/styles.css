@@ -11,19 +11,18 @@ body{
   -khtml-user-select: none;    /* Konqueror */
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+  user-select: none;            /*Non-prefixed version, currently
+                                  not supported by any browser*/ 
 }
 nav{
 	padding: 7px 0;
 	border-bottom: 2px solid black;
 	text-align: center;
-	background-color: pink;
 }
 
 .link{
 	text-decoration: none;
-	color: black;
+	color: #483B37;
 	font-size: 2em;
 	margin-right: 1.5em;
 }
@@ -37,9 +36,12 @@ nav{
 	border-bottom: 2px solid black;
 	padding: 3px 0;
 	font-size: 3.5em;
+	color: #483B37;
 	/*text-align: center;*/
 }
 .description{
-	margin: 17px 0;
 	font-size: 18px;
+	width: 75%;
+	margin: 17px auto;
+	color: #483B37;
 }

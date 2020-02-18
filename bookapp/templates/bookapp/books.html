@@ -1,15 +1,25 @@
 {% extends "bookapp/primary_pattern.html" %}
-
+{% load static %}
+{% block page_configs %}
+	<link rel="stylesheet" type="text/css" href="{% static 'bookapp/styles_for_books.css' %}">
+{% endblock page_configs%}
 {% block content %}
-
+	<div class="booklist">
 	{% if books_list %}
 
 		{% for book in books_list %}
-			<p>{{ book }}</p>
+		<a href="#" class="book-wrapper">
+			<div class="book">
+				<h1 class="book-title">{{ book.book_name }}</h1><br>
+				<span class="book-genre">Жанр книги: {{ book.book_genre }}</span><br>
+				<span class="book-year">Год книги: {{ book.book_year }}</span>
+			</div>
+		</a>
 		{% endfor %}
 
 	{% else %}
 		<p>No books are available.</p>
 	{% endif %}
+	</div>
 
 {% endblock content %}
