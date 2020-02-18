@@ -35,8 +35,8 @@ nav{
 .title{
 	border-bottom: 2px solid black;
 	padding: 3px 0;
-	font-size: 5em;
-	/*text-align: center;*/
+	font-size: 3.5em;
+	text-align: center;
 }
 .description{
 	margin: 17px 0;
