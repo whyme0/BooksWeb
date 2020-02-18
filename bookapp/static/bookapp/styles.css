@@ -36,7 +36,7 @@ nav{
 	border-bottom: 2px solid black;
 	padding: 3px 0;
 	font-size: 3.5em;
-	text-align: center;
+	/*text-align: center;*/
 }
 .description{
 	margin: 17px 0;
