@@ -1,0 +1,10 @@
+.book{
+	color: #483B37;
+	margin: 12px 2%;
+}
+.book-title{
+	font-size: 2em;
+}
+.book-description{
+	width:80%;
+}
