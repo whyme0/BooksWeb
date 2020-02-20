@@ -11,20 +11,18 @@
 
 
 <body>
-	{% block main %}
 	<div class="main">
 		<a href="{% url 'bookapp:index' %}">
 			<h1 class="title unselectable">Books</h1>
 		</a>
 
 		<nav>
-			<a href="books/" class="link">Книги</a>
-			<!-- <a href="autors/" class="link">Авторы</a> -->
+			<a href="{% url 'bookapp:books' %}" class="link">Книги</a>
+			<!-- <a href="{% url 'bookapp:autors' %}" class="link">Авторы</a> -->
 		</nav>
 		{% block content %}
 		{% endblock content %}
 	</div>
-	{% endblock main %}
 </body>
 
 
