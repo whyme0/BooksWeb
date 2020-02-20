@@ -13,7 +13,9 @@
 <body>
 	{% block main %}
 	<div class="main">
-		<h1 class="title unselectable">Books</h1>
+		<a href="{% url 'bookapp:index' %}">
+			<h1 class="title unselectable">Books</h1>
+		</a>
 
 		<nav>
 			<a href="books/" class="link">Книги</a>
