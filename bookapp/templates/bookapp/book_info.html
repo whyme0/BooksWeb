@@ -1,5 +1,27 @@
-<ul>
-	<li>{{ book.book_autor_info }}</li>
-	<li>{{ book.book_name }}</li>
-	<li>{{ book.book_description }}</li>
-</ul>
+{% extends "bookapp/primary_pattern.html" %}
+{% load static %}
+
+{% block page_configs %}
+	<link rel="stylesheet" type="text/css" href="{% static 'bookapp/styles_for_book.css' %}">
+{% endblock page_configs %}
+
+{% block content %}
+	
+	<div class="book">
+		<h1 class="book-title">{{ book.book_name }}</h1><br>
+
+		{% if book.book_autor %}
+				<span class="book-attribute">Имя Автора : <a href="">{{ book.book_autor_info }}</a></span><br>
+		{% else %}
+			<span class="book-attribute">Имя Автора : {{ book.book_autor_info }}</span><br>
+		{% endif %}
+
+		<span class="book-attribute">Жанр книги : {{ book.book_genre }}</span><br>
+
+		<span class="book-attribute">Год публикации : {{ book.book_year }}</span><br><br>
+
+		<span>Описание :</span><br>
+		<p class="book-description">{{ book.book_description }}</p>
+	</div>
+
+{% endblock content %}
