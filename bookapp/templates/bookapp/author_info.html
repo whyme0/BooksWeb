@@ -1,0 +1,29 @@
+{% extends "bookapp/primary_pattern.html" %}
+{% load static %}
+
+{% block page_configs %}
+	<link rel="stylesheet" type="text/css" href="{% static 'bookapp/styles_for_author.css' %}">
+{% endblock page_configs %}
+
+{% block content %}
+	
+	<div class="author">
+		<h1 class="author-title">{{ author.author_full_name }}</h1><br>
+
+		<span class="book-attribute">Дата рождения : {{ author.date_birth }}</span><br><br><br>
+
+		{% if author_books %}
+			<span style="margin-bottom: 2px;">Книги писателя :</span>
+				<ul style="padding-left:30px;">
+					{% for author_book in author_books %}
+						<li>
+							<a href="{% url 'bookapp:particular_book' author_book.id %}">
+								{{ author_book.book_name }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+		{% endif %}
+	</div>
+
+{% endblock content %}
