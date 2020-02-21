@@ -4,16 +4,11 @@ from datetime import datetime
 
 
 class Autor(models.Model):
-	first_name = models.CharField(max_length=100) # имя
-	middle_name = models.CharField(max_length=100) # отчество
-	last_name = models.CharField(max_length=100) # фамилия
+	author_full_name = models.CharField(max_length=303)
 	date_birth = models.DateField('birth date')
 
 	def __str__(self):
-		return ' '.join([self.first_name,
-						 self.middle_name,
-						 self.last_name
-					])
+		return self.author_full_name
 
 
 class Book(models.Model):
