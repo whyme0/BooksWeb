@@ -11,7 +11,9 @@
 		<h1 class="book-title">{{ book.book_name }}</h1><br>
 
 		{% if book.book_autor %}
-				<span class="book-attribute">Имя Автора : <a href="">{{ book.book_autor_info }}</a></span><br>
+				<span class="book-attribute">Имя Автора : <a href="{% url 'bookapp:particular_author' book_author.pk %}">
+					{{ book.book_autor_info }}
+				</a></span><br>
 		{% else %}
 			<span class="book-attribute">Имя Автора : {{ book.book_autor_info }}</span><br>
 		{% endif %}
