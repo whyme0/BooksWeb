@@ -1,0 +1,27 @@
+{% extends "bookapp/primary_pattern.html" %}
+{% load static %}
+
+{% block page_configs %}
+	<link rel="stylesheet" type="text/css" href="{% static 'bookapp/styles_for_authors.css' %}">
+{% endblock page_configs %}
+
+{% block content %}
+
+	<div class="authorlist">
+	{% if authors_list %}
+
+		{% for author in authors_list %}
+		<a href="{% url 'bookapp:particular_author' author.pk %}" class="author-wrapper">
+			<div class="author">
+				<h1 class="author-title">{{ author.author_full_name }}</h1><br>
+				<span>Год рождения: {{ author.date_birth }}</span>
+			</div>
+		</a>
+		{% endfor %}
+
+	{% else %}
+		<p>No authors are available.</p>
+	{% endif %}
+	</div>
+
+{% endblock content %}
