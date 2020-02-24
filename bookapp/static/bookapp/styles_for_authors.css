@@ -1,10 +1,6 @@
 .authorlist{
 	width: 90%;
 	margin: 17px 15px;
-	transition: all 0.3s ease;
-}
-.authorlist:hover{
-	background-color: #ebe4e4;
 }
 
 .author-wrapper{
@@ -13,6 +9,11 @@
 }
 .author{
 	padding: 1em;
+	margin-top: 20px;
+}
+.author:hover{
+	background-color: #ebe4e4;
+	transition: all 0.3s ease;
 }
 .author-title{
 	font-size: 2em;

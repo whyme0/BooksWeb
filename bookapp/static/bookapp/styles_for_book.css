@@ -1,10 +1,21 @@
 .book{
 	color: #483B37;
 	margin: 12px 2%;
+	display: flex;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #483B37;
 }
 .book-title{
 	font-size: 2em;
 }
 .book-description{
 	width:80%;
+}
+.book-picture{
+	width:100%;
+	object-fit:cover;
+}
+.image-wrapper{
+	width:200px;
+	margin-right: 20px;
 }

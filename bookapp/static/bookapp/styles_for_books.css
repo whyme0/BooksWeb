@@ -1,10 +1,6 @@
 .booklist{
 	width: 90%;
 	margin: 17px 15px;
-	transition: all 0.3s ease;
-}
-.booklist:hover{
-	background-color: #ebe4e4;
 }
 
 .book-wrapper{
@@ -13,6 +9,11 @@
 }
 .book{
 	padding: 1em;
+	margin-top: 20px;
+}
+.book:hover{
+	background-color: #ebe4e4;
+	transition: all 0.3s ease;
 }
 .book_title{
 	font-size: 0.4em;

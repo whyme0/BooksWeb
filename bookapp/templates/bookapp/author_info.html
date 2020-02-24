@@ -8,9 +8,16 @@
 {% block content %}
 	
 	<div class="author">
+		<div class="image-wrapper">
+			<img src="{{ author.get_static_url }}" class="author-picture">
+		</div>
+		<div>
 		<h1 class="author-title">{{ author.author_full_name }}</h1><br>
 
-		<span class="book-attribute">Дата рождения : {{ author.date_birth }}</span><br><br><br>
+		<span>Дата рождения : {{ author.date_birth }}</span><br><br>
+		<span>Дата сметри : {{ author.death_date }}</span><br><br>
+		<span>Место рождения : {{ author.birth_place }}</span><br>
+		<br><br><br>
 
 		{% if author_books %}
 			<span style="margin-bottom: 2px;">Книги писателя :</span>
@@ -24,6 +31,10 @@
 					{% endfor %}
 				</ul>
 		{% endif %}
+		</div>
 	</div>
+
+	{% block comments %}
+	{% endblock comments %}
 
 {% endblock content %}

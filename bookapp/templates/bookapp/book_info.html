@@ -8,11 +8,14 @@
 {% block content %}
 	
 	<div class="book">
+		<div class="image-wrapper">
+			<img src="{{ book.get_static_url }}" class="book-picture">
+		</div>
+		<div>
 		<h1 class="book-title">{{ book.book_name }}</h1><br>
-
 		{% if book.book_autor %}
 				<span class="book-attribute">Имя Автора : <a href="{% url 'bookapp:particular_author' book_author.pk %}">
-					{{ book.book_autor_info }}
+					{{ book.book_autor }}
 				</a></span><br>
 		{% else %}
 			<span class="book-attribute">Имя Автора : {{ book.book_autor_info }}</span><br>
@@ -24,6 +27,10 @@
 
 		<span>Описание :</span><br>
 		<p class="book-description">{{ book.book_description }}</p>
+		</div>
 	</div>
+
+	{% block comments %}
+	{% endblock comments %}
 
 {% endblock content %}

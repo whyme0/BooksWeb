@@ -3,7 +3,7 @@ from django.views import generic
 from .models import Autor, Book
 
 def index(request):
-	return render(request, 'bookapp/index.html')
+	return render(request, 'bookapp/index.html', {'session': request.session})
 
 
 def books(request):
