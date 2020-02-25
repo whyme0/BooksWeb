@@ -21,6 +21,8 @@
 			<a href="{% url 'bookapp:authors' %}" class="link">Авторы</a>
 			<a href="" class="link">Аккаунт</a>
 		</nav>
+
+		<span>{{ session }}</span>
 		{% block content %}
 		{% endblock content %}
 	</div>
