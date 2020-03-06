@@ -20,7 +20,7 @@
 		<nav class="nav justify-content-center">
 			<a href="{% url 'bookapp:books' %}" class="link">Книги</a>
 			<a href="{% url 'bookapp:authors' %}" class="link">Авторы</a>
-			<a href="" class="link">Аккаунт</a>
+			<a href="{% url 'authapp:registration' %}" class="link">Регистрация</a>
 		</nav>
 		{% block content %}
 		{% endblock content %}
