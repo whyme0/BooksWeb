@@ -1,0 +1,12 @@
+{% extends 'bookapp/primary_pattern.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<h1 class="display-4">Регистрация</h1>
+	<form method="POST">
+		{% csrf_token %}
+		
+		{{ form|crispy }}
+		<input type="submit" value="Зарегестрироваться">
+	</form>
+{% endblock content %}
