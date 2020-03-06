@@ -3,7 +3,7 @@
 	padding: 0;
 }
 body{
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif !important;
 }
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -20,7 +20,7 @@ nav{
 	text-align: center;
 }
 a{
-	text-decoration: none;
+	text-decoration: none !important;
 }
 .link{
 	color: #483B37;
