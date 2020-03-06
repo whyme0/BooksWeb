@@ -1,6 +1,10 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 from datetime import datetime
+from django.contrib.auth.models import User
+
+
+User._meta.get_field('email')._unique = True
 
 
 class Autor(models.Model):
