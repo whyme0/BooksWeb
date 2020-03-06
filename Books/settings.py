@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bookapp.apps.BookappConfig',
+    'authapp.apps.AuthappConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'Books.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,8 +115,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Redirect to home after login(Default redirects to 'accounts/profile')
+LOGIN_REDIRECT_URL = '/'
+
+# To send password reset for particular user on it email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Poupular CSS library specifically for good form view
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
