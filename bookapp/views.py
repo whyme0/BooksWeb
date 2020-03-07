@@ -47,3 +47,6 @@ def particular_author(request, pk):
 		}
 	return render(request, 'bookapp/author_info.html', context)
 	
+
+def profile(request):
+	return render(request, 'bookapp/profile.html')
