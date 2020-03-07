@@ -12,7 +12,7 @@
 
 
 <body>
-	<div class="main container">
+	<div class="container">
 		<a href="{% url 'bookapp:index' %}">
 			<h1 class="title unselectable">Books</h1>
 		</a>
@@ -20,11 +20,24 @@
 		<nav class="nav justify-content-center">
 			<a href="{% url 'bookapp:books' %}" class="link">Книги</a>
 			<a href="{% url 'bookapp:authors' %}" class="link">Авторы</a>
-			<a href="{% url 'authapp:registration' %}" class="link">Регистрация</a>
+			{% if user.is_authenticated %}
+				<a href="{% url 'bookapp:profile' %}" class="link">Аккаунт</a>
+			{% else %}
+				<a href="{% url 'authapp:registration' %}" class="link">Регистрация</a>
+				<a href="{% url 'authapp:login' %}" class="link">Вход</a>
+			{% endif %}
 		</nav>
 		{% block content %}
 		{% endblock content %}
 	</div>
+	<footer class="footer mt-auto bg-dark fixed-bottom p-2">
+		<div class="container">
+			<div class="row justify-content-between">
+				<span class="text-white">Made by sparkjet</span>
+				<a href="" class="text-secondary">Обратная связь</a>
+			</div>
+		</div>
+	</footer>
 
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
