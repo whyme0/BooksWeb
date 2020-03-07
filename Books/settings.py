@@ -116,7 +116,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Redirect to home after login(Default redirects to 'accounts/profile')
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile'
 
 # To send password reset for particular user on it email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
