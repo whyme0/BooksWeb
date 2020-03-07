@@ -1,0 +1,15 @@
+{% extends 'bookapp/primary_pattern.html' %}
+
+{% block content %}
+	{% if user.is_authenticated %}
+		<h3>Добро пожаловать, {{ user.username }}</h3>
+		<p>Вашь email : {{ user.email }}</p>
+		<p>Дата регистрации : {{ user.date_joined }}</p>
+
+		<a href="{% url 'authapp:logout' %}?next={% url 'authapp:login' %}" class="btn btn-danger">Выйти</a>
+	{% else %}
+		<p>Вы еще не зошли в систему что-бы просматривать свой проифиль</p>
+		<a href="{% url 'authapp:login' %}" class="btn btn-info my-1">Войти</a><br>
+		<a href="{% url 'authapp:registration' %}" class="btn btn-info">Регистрация</a>
+	{% endif %}
+{% endblock content %}
