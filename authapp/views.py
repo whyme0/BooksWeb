@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, UserLoginForm
 from django.contrib import messages
 
 def registration(request):
@@ -8,8 +8,8 @@ def registration(request):
 		if form.is_valid():
 			form.save()
 			username = form.cleaned_data.get('username')
-			messages.success(request, f'Вы успешно создали аккаунт {username}.')
-			return redirect('bookapp:index')
+			messages.success(request, f'Вы успешно создали аккаунт {username}. Теперь войдите.')
+			return redirect('authapp:login')
 	else:
 		form = UserRegistrationForm()
 
