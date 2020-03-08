@@ -22,6 +22,11 @@ nav{
 a{
 	text-decoration: none !important;
 }
+.f{
+	position: fixed;
+	left: 0;bottom: 0;
+	width: 100%;
+}
 .link{
 	color: #483B37;
 	font-size: 2em;
