@@ -9,7 +9,7 @@ def index(request):
 
 
 def books(request):
-	books_list = Book.objects.all()[:5]
+	books_list = Book.objects.all()
 	context = {
 		'books_list': books_list,
 	}
@@ -30,7 +30,7 @@ def particular_book(request, pk):
 
 
 def authors(request):
-	authors_list = Autor.objects.all()[:5]
+	authors_list = Autor.objects.all()
 	context = {
 		'authors_list': authors_list
 	}
