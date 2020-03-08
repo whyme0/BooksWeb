@@ -12,7 +12,7 @@ class Autor(models.Model):
 	date_birth = models.DateField('birth date')
 	death_date = models.DateField('death date')
 	birth_place = models.CharField(max_length=90, default=None)
-	author_picture = models.ImageField(upload_to='bookapp/static/bookapp/pictures', default=None)
+	author_picture = models.ImageField(upload_to='bookapp/static/bookapp/pictures', default='bookapp/static/bookapp/pictures/undefiend.png')
 
 	def __str__(self):
 		return self.author_full_name
@@ -27,7 +27,7 @@ class Book(models.Model):
 	book_autor_info = models.CharField(max_length=303)
 	book_name = models.CharField(max_length=2**10)
 	book_genre = models.CharField(max_length=32)
-	book_picture = models.ImageField(upload_to='bookapp/static/bookapp/pictures', default=None)
+	book_picture = models.ImageField(upload_to='bookapp/static/bookapp/pictures', default='bookapp/static/bookapp/pictures/undefiend.png')
 	
 	# just year of publication
 	book_year = models.PositiveSmallIntegerField(
