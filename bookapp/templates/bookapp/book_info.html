@@ -31,6 +31,16 @@
 	</div>
 
 	{% block comments %}
+		{% if user.is_authenticated %}
+			<form method="POST" action='bookapp:particular_book'>
+				<textarea></textarea>
+				<input type="submit" value="Send">
+			</form>
+		{% else %}
+			<p class="alert alert-warning">
+				<a href="{% url 'authapp:login' %}">Авторизируйтесь</a> что-бы коментировать.
+			</p>
+		{% endif %}
 	{% endblock comments %}
 
 {% endblock content %}
