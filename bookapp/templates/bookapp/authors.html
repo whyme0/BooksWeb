@@ -8,16 +8,27 @@
 {% block content %}
 
 	<div class="authorlist">
-	{% if authors_list %}
+	{% if authors %}
 
-		{% for author in authors_list %}
-		<a href="{% url 'bookapp:particular_author' author.pk %}" class="author-wrapper">
+		<div class="infinite-container">
+		{% for author in authors %}
+		<a href="{% url 'bookapp:particular_author' author.pk %}" class="author-wrapper infinite-item">
 			<div class="author">
 				<h1 class="author-title">{{ author.author_full_name }}</h1><br>
 				<span>Год рождения: {{ author.date_birth }}</span>
 			</div>
 		</a>
 		{% endfor %}
+		</div>
+
+		{% if page_obj.has_next %}
+			<a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+		{% endif %}
+		<div class="d-flex justify-content-center" style="display:none;">
+			<div class="spinner-border" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
 
 	{% else %}
 		<p>No authors are available.</p>
@@ -25,3 +36,26 @@
 	</div>
 
 {% endblock content %}
+
+{% block js-scripts %}
+	<script src="{% static 'bookapp/js/jquery-2.2.4.min.js' %}"></script>
+	<script src="{% static 'bookapp/js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'bookapp/js/infinite.min.js' %}"></script>
+	<script>
+		var infinite = new Waypoint.Infinite({
+			element: $('.infinite-container')[0],
+			handler: function(direction) {
+			
+		},
+		offset: 'bottom-in-view',
+
+		onBeforePageLoad: function () {
+		$('.spinner-border').show();
+		},
+		onAfterPageLoad: function () {
+		$('.spinner-border').hide();
+		}
+		
+		});
+	</script>
+{% endblock js-scripts %}
