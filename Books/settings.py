@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'bookapp.apps.BookappConfig',
     'authapp.apps.AuthappConfig',
     'crispy_forms',
+    'el_pagination',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,6 +125,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'STATIC')
 STATIC_URL = '/static/'
 
 # Poupular CSS library specifically for good form view
