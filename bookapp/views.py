@@ -1,3 +1,5 @@
+from django.views.generic.list import ListView
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Autor, Book
@@ -8,12 +10,12 @@ def index(request):
 	return render(request, 'bookapp/index.html')
 
 
-def books(request):
-	books_list = Book.objects.all()
-	context = {
-		'books_list': books_list,
-	}
-	return render(request, 'bookapp/books.html', context)
+class BooksView(ListView):
+	model = Book
+	paginate_by = 1
+	context_object_name = 'books'
+	template_name = 'bookapp/books.html'
+	ordering = ['book_year']
 
 
 def particular_book(request, pk):
@@ -29,12 +31,12 @@ def particular_book(request, pk):
 	return render(request, 'bookapp/book_info.html', context)
 
 
-def authors(request):
-	authors_list = Autor.objects.all()
-	context = {
-		'authors_list': authors_list
-	}
-	return render(request, 'bookapp/authors.html', context)
+class AuthorsView(ListView):
+	model = Autor
+	paginate_by = 1
+	context_object_name = 'authors'
+	template_name = 'bookapp/authors.html'
+	ordering = ['author_full_name']
 
 
 def particular_author(request, pk):
