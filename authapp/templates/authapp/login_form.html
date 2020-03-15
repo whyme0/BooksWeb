@@ -1,6 +1,14 @@
 {% extends 'bookapp/primary_pattern.html' %}
 {% load crispy_forms_tags %}
 
+{% block page_config %}
+	<style type="text/css">
+		.form-group{
+			width: 35% !important;
+		}
+	</style>
+{% endblock page_config %}
+
 {% block content %}
 	<div class="my-2">
 		{% if messages %}
@@ -14,6 +22,25 @@
 		{% csrf_token %}
 
 		{{ form|crispy }}
+		<button type="button" id="show_password" name="show_password" class="btn btn-secondary">Показать пароль</button><br><br><br>
 		<input type="submit" value="Войти" class="btn btn-light">
 	</form>
 {% endblock %}
+
+{% block js-scripts %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#show_password').on('click', function(){
+				var passwordField = $('#id_password');
+				var passwordFieldType = passwordField.attr('type');
+				if (passwordFieldType == 'password'){
+					passwordField.attr('type', 'text');
+					$(this).text('Скрыть пароль');
+				} else {
+					passwordField.attr('type', 'password');
+					$(this).text('Показать пароль');
+				}
+			});
+		});
+	</script>
+{% endblock%}
