@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import login
 from .forms import LoginForm
 from django.views.generic.edit import FormView
+from .authentication import UsernameOrEmailBackend
 
 def registration(request):
 	if request.method == 'POST':
@@ -26,8 +27,11 @@ class LoginView(FormView):
 
 	def form_valid(self, form):
 		if form.is_valid():
-			user = authenticate(self.request,
-								username=self.request.POST['username'],
-								password=self.request.POST['password'],)
+			user = UsernameOrEmailBackend().authenticate(
+				self.request,
+				username=self.request.POST['username'],
+				password=self.request.POST['password'],
+			)
+
 			login(self.request, user)
 			return redirect('bookapp:profile')
