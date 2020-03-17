@@ -22,5 +22,7 @@ class LoginForm(AuthenticationForm):
 	def __init__(self, *args, **kwargs):
 		super(LoginForm, self).__init__(*args, **kwargs)
 
-		self.fields['username'].widget.attrs.update({'placeholder': 'Ваш логин'})
+		self.fields['username'].widget.attrs.update({'placeholder': 'Ваш логин или почта'})
+		self.fields['username'].label = 'Имя пользователя или почта'
+		
 		self.fields['password'].widget.attrs.update({'placeholder': 'Ваш пароль'})
