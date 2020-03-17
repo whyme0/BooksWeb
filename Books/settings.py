@@ -52,6 +52,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'authapp.authentication.UsernameOrEmailBackend'
+]
+
 ROOT_URLCONF = 'Books.urls'
 
 TEMPLATES = [
