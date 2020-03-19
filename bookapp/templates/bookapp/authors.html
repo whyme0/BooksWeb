@@ -6,8 +6,15 @@
 {% endblock page_config %}
 
 {% block content %}
-
 	<div class="authorlist">
+		<form class="form-inline my-2 row" method="GET" action="{% url 'bookapp:authors' %}">
+    		<input class="form-control mr-sm-2 col-9" type="text" placeholder="Search" aria-label="Search" name="search" value="{{search_context}}">
+        	<button class="btn btn-outline-secondary my-2 my-sm-0 col-2" type="submit">Search</button>
+    	</form>
+
+    	{% if search_context %}
+    		<p class="alert alert-light">Результаты по поиску <strong>"{{ search_context }}"</strong></p>
+    	{% endif %}
 	{% if authors %}
 
 		<div class="infinite-container">
@@ -34,7 +41,6 @@
 		<p>No authors are available.</p>
 	{% endif %}
 	</div>
-
 {% endblock content %}
 
 {% block js-scripts %}
