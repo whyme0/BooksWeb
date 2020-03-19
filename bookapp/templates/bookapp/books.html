@@ -6,12 +6,19 @@
 {% endblock page_config %}
 
 {% block content %}
-
 	<div class="booklist">
-	{% if books %}
+		<form class="form-inline my-2 row" method="GET" action="{% url 'bookapp:books' %}">
+      		<input class="form-control mr-sm-2 col-9" type="text" placeholder="Search" aria-label="Search" name="search" value="{{search_context}}">
+      		<button class="btn btn-outline-secondary my-2 my-sm-0 col-2" type="submit">Search</button>
+    	</form>
+
+    	{% if search_context %}
+    		<p class="alert alert-light">Результаты по поиску <strong>"{{ search_context }}"</strong></p>
+    	{% endif %}
+	{% if books_list %}
 
 		<div class="infinite-container">
-		{% for book in books %}
+		{% for book in books_list %}
 		<a href="{% url 'bookapp:particular_book' book.pk %}" class="book-wrapper infinite-item">
 			<div class="book">
 				<h1 class="book-title">{{ book.book_name }}</h1><br>
@@ -35,7 +42,6 @@
 		<p>No books are available.</p>
 	{% endif %}
 	</div>
-
 {% endblock content %}
 
 {% block js-scripts %}
