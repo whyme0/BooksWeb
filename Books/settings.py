@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bookapp.apps.BookappConfig',
     'authapp.apps.AuthappConfig',
+    'commentsapp.apps.CommentsappConfig',
     'crispy_forms',
     'el_pagination',
     'django.contrib.admin',
