@@ -1,0 +1,16 @@
+{% if user.is_authenticated %}
+	<form method="POST" style="margin:12px 20% 60px 20%;" action="#end">
+		{% csrf_token %}
+		<textarea class="form-control" id="validationTextarea" name="comment_text" maxlength="1000" placeholder="Напишите комментарий" style="height: 90px;resize: none;" required></textarea>
+		<span style="color:gray;font-size:12px;">Пустые комментарии не публикуются</span>
+		<input type="submit" value="отправить" class="btn btn-outline-primary mt-3 justify-content-end" style="float:right;">
+	</form>
+{% else %}
+	<p class="alert alert-warning wrapper">
+		{% if book %}
+		<a href="{% url 'authapp:login' %}?next={{ book.pk }}">Авторизируйтесь</a> что-бы коментировать.
+		{% else %}
+		<a href="{% url 'authapp:login' %}?next={{ author.pk }}">Авторизируйтесь</a> что-бы коментировать.
+		{% endif %}
+	</p>
+{% endif %}
