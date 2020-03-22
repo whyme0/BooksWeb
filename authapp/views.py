@@ -34,4 +34,9 @@ class LoginView(FormView):
 			)
 
 			login(self.request, user)
-			return redirect('bookapp:profile')
+
+			# finally redirect to specific page
+			if self.request.GET.get('next'):
+				return redirect('bookapp:particular_book', pk=self.request.GET.get('next'))
+			else:
+				return redirect('bookapp:profile')
