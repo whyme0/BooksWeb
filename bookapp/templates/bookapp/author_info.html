@@ -35,6 +35,63 @@
 	</div>
 
 	{% block comments %}
+		{% include 'commentsapp/send_form.html' %}
+		
+		{% if comments %}
+			<h2>Комментарии к этой книге</h2>
+			<div class="infinite-container">
+			{% for comment in comments %}
+			<a href="#{{comment}}" style="color:#212529;text-decoration: none;">
+				<div class="card" id='{{comment}}' style="margin-bottom:30px;">
+					<div class="card-header" style="padding:12px;">
+						Автор: {{comment.comment_author.username}}
+					</div>
+					<div class="card-body" style="padding:12px;">
+						<blockquote class="blockquote mb-0">
+							<p class="mb-0">{{comment.comment_content}}</p>
+							<cite title="Source Title" style="font-size:14px;color:gray;">{{comment.comment_date}}</cite>
+						</blockquote>
+					</div>
+				</div>
+			</a>
+			{% endfor %}
+			</div>
+
+			{% if page_obj.has_next %}
+				<a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+			{% endif %}
+			<div class="d-flex justify-content-center" style="display: none;">
+				<div class="spinner-border" role="status">
+					<span class="sr-only">Loading...</span>
+				</div>
+			</div>
+
+		{% endif %}
+		<span id="end"></span>
 	{% endblock comments %}
 
 {% endblock content %}
+
+{% block js-scripts %}
+	<script src="{% static 'bookapp/js/jquery-2.2.4.min.js' %}"></script>
+	<script src="{% static 'bookapp/js/jquery.waypoints.min.js' %}"></script>
+	<script src="{% static 'bookapp/js/infinite.min.js' %}"></script>
+	<script>
+	var infinite = new Waypoint.Infinite({
+		element: $('.infinite-container')[0],
+		handler: function(direction) {
+		
+	},
+	offset: 'bottom-in-view',
+
+	onBeforePageLoad: function () {
+	$('.spinner-border').show();
+	},
+	onAfterPageLoad: function () {
+	$('.spinner-border').hide();
+	}
+		
+	});
+
+	</script>
+{% endblock js-scripts %}
